@@ -1,1 +1,1 @@
-java -cp target/classes Driver
+mvn exec:java
