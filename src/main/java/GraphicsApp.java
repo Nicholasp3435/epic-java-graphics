@@ -1,6 +1,7 @@
 
 import javafx.application.Platform;
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -32,17 +33,19 @@ public class GraphicsApp extends Application {
     public GraphicsApp() {
 	this.stage = null;
 	this.scene = null;
-	this.canvas = new Canvas(768, 256);
+	this.canvas = new Canvas(1000, 250);
 	this.gc = this.canvas.getGraphicsContext2D();
 	this.gc.setFill(Color.BLACK);
 	this.gc.fillRect(0, 0, this.canvas.getWidth(), this.canvas.getHeight());
 	this.gc.setTextAlign(TextAlignment.CENTER);
 	this.root = new VBox();
 	this.inBox = new HBox(5);
+	this.inBox.setAlignment(Pos.CENTER);
 	this.inLbl = new Label("Enter any string and press enter");
 	this.inField = new TextField("Nic");
+	this.inField.setOnAction(e -> actionHandler());
 	this.inBtn = new Button("Click me to continue");
-	this.inBtn.setOnAction(e -> buttonHandler());
+	this.inBtn.setOnAction(e -> actionHandler());
     } // GraphicsApp
 
     @Override
@@ -89,7 +92,7 @@ public class GraphicsApp extends Application {
 	} // for
     } // drawTexr
 
-    public void buttonHandler() {
+    public void actionHandler() {
 	double x = this.canvas.getWidth() / 2;
 	double y = this.canvas.getHeight() / 3;
 	drawText(this.gc, x, y);
