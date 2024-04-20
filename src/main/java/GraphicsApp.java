@@ -1,17 +1,19 @@
 
-import javafx.application.Platform;
+
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Pos;
-import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
-import javafx.scene.layout.HBox;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -61,6 +63,7 @@ public class GraphicsApp extends Application {
         this.scene = new Scene(this.root);
         this.stage.setOnCloseRequest(event -> Platform.exit());
         this.stage.setTitle("EPIC Java Graphics");
+	this.stage.getIcons().add(new Image("file:resources/EPIC.png"));
         this.stage.setScene(this.scene);
         this.stage.sizeToScene();
         this.stage.show();
